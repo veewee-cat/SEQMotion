@@ -6,7 +6,7 @@
 
 Отрисовка управляемой последовательности
 
-![banner](images/variable_table.png)
+![banner](images/code_hint/DrawSequence.png)
 
 <br><br>
 
