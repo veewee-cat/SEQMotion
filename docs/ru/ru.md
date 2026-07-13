@@ -1,3 +1,11 @@
+# Методы
+
+- [CreateSEQMotionSequence](#createseqmotionsequence)
+- [DeleteSEQMotionSequence](#deleteseqmotionsequence)
+- [DrawSEQMotionSequence](#drawseqmotionsequence)
+- [SetSequence](#setsequence)
+- [GetSequence](#getsequence)
+
 ## CreateSEQMotionSequence
 
 Создание экземпляра управляемой последовательности
