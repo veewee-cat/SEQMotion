@@ -1,5 +1,1 @@
 blank_issues_enabled: false
-contact_links:
-  - name: Задать вопрос или предложить обсуждение
-    url: https://github.com/ВАШ_АККАУНТ/НАЗВАНИЕ_РЕПОЗИТОРИЯ/discussions
-    about: Для общих вопросов используйте Discussions.
