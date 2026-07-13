@@ -4,6 +4,8 @@
 
 `SEQMotion.DrawSequence( seqmotion_sequence, frame, x, y, xscale, yscale, rotation )`
 
+Отрисовка управляемой последовательности
+
 ![banner](images/variable_table.png)
 
 
