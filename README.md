@@ -8,7 +8,7 @@
 
 ## Установка
 
-Скачайте [последнюю релизную версию расширения](https://github.com/veewee-cat/SEQMotion/releases/latest) и установите ее в ваш проект через: `Tools` -> `Import Local Package`<br>
+Скачайте [последнюю версию расширения](https://github.com/veewee-cat/SEQMotion/releases/latest) и установите ее в ваш проект через: `Tools` -> `Import Local Package`<br>
 Ничего больше настраивать не нужно, расширение будет работать с самого запуска вашей игры<br>
 Подробно о том, как работать с этим расширением описано в [документации](docs/ru/.md)
 
