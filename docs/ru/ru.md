@@ -61,8 +61,8 @@ SEQMotion.SetSequence( seqmotion_sequence, sequence_index )
 
 ### Возвращаемое значение
 
-![SetSequence](images/SetSequence.png)
+![SetSequence-return](images/SetSequence-return.png)
 
 ### Параметры метода
 
-![SetSequence-return](images/SetSequence-return.png)
+![SetSequence](images/SetSequence.png)
