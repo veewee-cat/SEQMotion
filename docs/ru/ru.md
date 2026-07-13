@@ -51,6 +51,8 @@ SEQMotion.DeleteSEQMotionSequence( _seqmotion_sequence )
 
 При отрисовке можно менять общие параметры трансформации изображения ( самой последовательности ), а именно: размер ( `xscale` / `yscale` ) и поворот ( `rotation` ), относительно центральной точки
 
+<br>
+
 ### Синтаксис
 ```c
 SEQMotion.DrawSEQMotionSequence( _seqmotion_sequence, _frame, _x, _y, _xscale, _yscale, _rotation )
@@ -68,8 +70,10 @@ SEQMotion.DrawSEQMotionSequence( _seqmotion_sequence, _frame, _x, _y, _xscale, _
 
 ## SetSequence
 
-Изменение индекса экземпляра последовательности управляемой последовательности
+Изменение индекса экземпляра последовательности управляемой последовательности<br>
 Метод позволяет переключаться между ассетами, создавая более сложные системы анимаций. В качестве указателя на индекс последовательности можно указать значение `-1` — это очистит данные текущего экземпляра
+
+<br>
 
 ### Синтаксис
 ```c
@@ -81,3 +85,24 @@ SEQMotion.SetSequence( _seqmotion_sequence, _sequence_index )
 
 ### Возвращаемое значение
 ![SetSequence-return](images/SetSequence-return.png)
+
+<br>
+<br>
+<br>
+
+## GetSequence
+
+С помощью этого метода можно получить указатель на текущий экземпляр последовательности. В случае, если у управляемой последовательности не указан экземпляр текущей последовательности будет возвращено значение `undefined`
+
+<br>
+
+### Синтаксис
+```c
+SEQMotion.GetSequence( _seqmotion_sequence )
+```
+
+### Параметры метода
+![GetSequence](images/SetSequence.png)
+
+### Возвращаемое значение
+![GetSequence-return](images/SetSequence-return.png)
