@@ -10,7 +10,7 @@
 
 <br><br>
 
-`SEQMotion.SetSequence( seqmotion_sequence, frame, x, y, xscale, yscale, rotation )`
+`SEQMotion.SetSequence( seqmotion_sequence, sequence_index )`
 
 ![banner](images/code_hint/SetSequence.png)
 
