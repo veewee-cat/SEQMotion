@@ -9,3 +9,5 @@
 `SEQMotion.GetSequence( seqmotion_sequence, frame, x, y, xscale, yscale, rotation )`
 
 `SEQMotion.SetSequence( seqmotion_sequence, frame, x, y, xscale, yscale, rotation )`
+
+![banner](images/variable_table.png)
