@@ -8,16 +8,40 @@
 
 ![banner](images/variable_table.png)
 
+<br><br>
+
+`SEQMotion.SetSequence( seqmotion_sequence, frame, x, y, xscale, yscale, rotation )`
+
+![banner](images/code_hint/SetSequence.png)
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br>
 
 `SEQMotion.CreateSequence( sequence_index )`
 
 `SEQMotion.DeleteSequence( seqmotion_sequence )`
 
 `SEQMotion.GetSequence( seqmotion_sequence, frame, x, y, xscale, yscale, rotation )`
-
-`SEQMotion.SetSequence( seqmotion_sequence, frame, x, y, xscale, yscale, rotation )`
