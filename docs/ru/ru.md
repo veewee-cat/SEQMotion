@@ -102,7 +102,7 @@ SEQMotion.GetSequence( _seqmotion_sequence )
 ```
 
 ### Параметры метода
-![GetSequence](images/SetSequence.png)
+![GetSequence](images/GetSequence.png)
 
 ### Возвращаемое значение
-![GetSequence-return](images/SetSequence-return.png)
+![GetSequence-return](images/GetSequence-return.png)
