@@ -1,4 +1,4 @@
-# Методы
+## Методы
 
 - [CreateSEQMotionSequence](#createseqmotionsequence)
 - [DeleteSEQMotionSequence](#deleteseqmotionsequence)
