@@ -10,6 +10,15 @@ function SEQMotion( ) constructor
 		#region Get-методы
 		
 			///	@method
+			///	@description Структура текущей последовательности
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
+			///	@return {Struct.Sequence}
+			static GetSequenceInstance = function( _seqmotion_sequence )
+			{
+				return _seqmotion_sequence.__GetSequenceInstance( );
+			};
+		
+			///	@method
 			///	@description Получение фактора растяжения по x управляемой последовательности
 			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
 			///	@return {Real}
@@ -43,12 +52,20 @@ function SEQMotion( ) constructor
 				};
 			
 			#endregion
+			
+			///	@method
+			///	@description Изменение индекса последовательности
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
+			///	@parameter {Asset.GMSequence} _sequence_index Индекс последовательности
+			static SetSequence = function( _seqmotion_sequence, _sequence_index )
+			{
+					_seqmotion_sequence.__SetSequence( _sequence_index );
+			};
 		
 			///	@method
 			///	@description Изменение фактора растяжения по x
 			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
 			///	@parameter {Real} _xscale Фактор растяжения по x
-			///	@ignore
 			static SetXscale = function( _seqmotion_sequence, _xscale )
 			{
 					_seqmotion_sequence.__SetXscale( _xscale );
@@ -58,10 +75,18 @@ function SEQMotion( ) constructor
 			///	@description Изменение фактора растяжения по y
 			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
 			///	@parameter {Real} _xscale Фактор растяжения по y
-			///	@ignore
 			static SetYscale = function( _seqmotion_sequence, _yscale )
 			{
 					_seqmotion_sequence.__SetYscale( _yscale );
+			};
+			
+			///	@method
+			///	@description Изменение угла наклона последовательности
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
+			///	@parameter {Real} _rotation Угол наклона в градусах
+			static SetRotation = function( _seqmotion_sequence, _rotation )
+			{
+					_seqmotion_sequence.__SetRotation( _rotation );
 			};
 		
 		#endregion
@@ -70,7 +95,7 @@ function SEQMotion( ) constructor
 		///	@description Создание экземпляра управляемой последовательности
 		///	@parameter {Asset.GMSequence OR Undefined} _sequence_index Индекс последовательности
 		///	@return {Struct.SEQMotionSequence}
-		static CreateSEQMotionSequence = function( _sequence_index = -1 )
+		static CreateSEQMotionSequence = function( _sequence_index )
 		{
 			return new SEQMotionSequence( _sequence_index );
 		};
