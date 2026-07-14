@@ -1,0 +1,11 @@
+{
+  "FolderOrderSettings":[
+    {"name":"Extensions","order":2,"path":"folders/Extensions.yy",},
+    {"name":"SEQMotion","order":1,"path":"folders/Extensions/SEQMotion.yy",},
+    {"name":"Sequence","order":1,"path":"folders/Extensions/SEQMotion/Sequence.yy",},
+  ],
+  "ResourceOrderSettings":[
+    {"name":"SEQMotion","order":2,"path":"scripts/SEQMotion/SEQMotion.yy",},
+    {"name":"SEQMotionLoader","order":3,"path":"scripts/SEQMotionLoader/SEQMotionLoader.yy",},
+  ],
+}

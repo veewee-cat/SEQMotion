@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SEQMotion",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SEQMotion",
+  "parent":{
+    "name":"SEQMotion",
+    "path":"folders/Extensions/SEQMotion.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
