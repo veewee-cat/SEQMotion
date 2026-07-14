@@ -1,7 +1,8 @@
-//	Made by Veewee cat: https://t.me/veewee_cat
+//	Made by Veewee cat
+//	@veewee_cat
 
 ///	@class			
-///	@description	Основной класс расширения - единая точка входа
+///	@description Основной класс расширения - единая точка входа
 function SEQMotion( ) constructor
 {
 	#region Публичные методы - API
@@ -9,90 +10,75 @@ function SEQMotion( ) constructor
 		#region Get-методы
 		
 			///	@method
-			///	@description													Получение индекса текущей последовательности управляемой последовательности
-			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
-			///	@return {Id.SequenceElement OR Undefined}
-			static GetSequence = function( _seqmotion_sequence )
+			///	@description Получение фактора растяжения по x управляемой последовательности
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
+			///	@return {Real}
+			static GetXscale = function( _seqmotion_sequence )
 			{
-				return _seqmotion_sequence.__GetSequence( );
+				return _seqmotion_sequence.__GetXscale( );
 			};
 			
 			///	@method
-			///	@description													Получение скорости проигрывания анимации последовательности
-			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
+			///	@description Получение фактора растяжения по y управляемой последовательности
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
 			///	@return {Real}
-			static GetPlaybackSpeed = function( _seqmotion_sequence )
+			static GetYscale = function( _seqmotion_sequence )
 			{
-				return _seqmotion_sequence.__GetPlaybackSpeed( );
+				return _seqmotion_sequence.__GetYscale( );
 			};
 		
 		#endregion
 		#region Set-методы
 		
+			#region Данные каналов последовательностей
+			
+				static SetTrackSprite = function( _seqmotion_sequence, _track_name, _sprite_index )
+				{
+						_seqmotion_sequence.__SetTrackSprite( _track_name, _sprite_index );
+				};
+			
+			#endregion
+		
 			///	@method
-			///	@description													Изменение индекса текущей последовательности
-			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
-			///	@parameter {Asset.GMSequence OR Real} _seqmotion_sequence		Индекс последовательности
-			static SetSequence = function( _seqmotion_sequence, _sequence_index = -1 )
+			///	@description Изменение фактора растяжения по x
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
+			///	@parameter {Real} _xscale Фактор растяжения по x
+			///	@ignore
+			static SetXscale = function( _seqmotion_sequence, _xscale )
 			{
-					_seqmotion_sequence.__SetSequence( _sequence_index );
+					_seqmotion_sequence.__SetXscale( _xscale );
 			};
 			
 			///	@method
-			///	@description													Изменение скорости проигрывания анимации последовательности
-			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
-			///	@parameter {Real} _seqmotion_sequence							Новая скорость
-			static SetPlaybackSpeed = function( _seqmotion_sequence, _playback_speed )
+			///	@description Изменение фактора растяжения по y
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
+			///	@parameter {Real} _xscale Фактор растяжения по y
+			///	@ignore
+			static SetYscale = function( _seqmotion_sequence, _yscale )
 			{
-					_seqmotion_sequence.__SetPlaybackSpeed( _playback_speed );
-			};
-			
-			///	@method
-			///	@description													Изменение спрайта конкретного канала последовательности
-			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
-			///	@parameter {String} _track_name									Имя канала
-			///	@parameter {Asset.GMSprite} _sprite_index						Индекс спрайта
-			static SetTrackSprite = function( _seqmotion_sequence, _track_name, _sprite_index )
-			{
-					_seqmotion_sequence.__SetTrackSprite( _track_name, _sprite_index );
+					_seqmotion_sequence.__SetYscale( _yscale );
 			};
 		
 		#endregion
-		#region Создание / удаление управляемых последовательностей
-		
-			///	@method
-			///	@description													Создание экземпляра управляемой последовательности
-			///	@parameter {Asset.GMSequence OR Undefined} _sequence_index		Индекс последовательности
-			///	@return {Struct.SEQMotionSequence}
-			static CreateSEQMotionSequence = function( _sequence_index = -1 )
-			{
-				return new SEQMotionSequence( _sequence_index );
-			};
-		
-			///	@method
-			///	@description													Удаление экземпляра управляемой последовательности из памяти
-			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
-			static DeleteSEQMotionSequence = function ( _seqmotion_sequence )
-			{
-					   _seqmotion_sequence.__CleanUp( );
-				delete _seqmotion_sequence;
-			};
-		
-		#endregion
-	
+
 		///	@method
-		///	@description													Отрисовка управляемой последовательности
-		///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
-		///	@parameter {Real} _frame										Индекс конкретного кадра для отрисовки. Аналогично спрайтам, в качестве значения
-		///																	этого параметра можно указать -1, чтобы отрисовка происходила на основе текущего кадра последовательности
-		///	@parameter {Real} _x											Позиция для отрисовки последовательности по x
-		///	@parameter {Real} _y											Позиция для отрисовки последовательности по y
-		///	@parameter {Real} _xscale										Фактор растяжения последовательности по x
-		///	@parameter {Real} _yscale										Фактор растяжения последовательности по y
-		///	@parameter {Real} _rotation										Угол поворота
-		static DrawSEQMotionSequence = function( _seqmotion_sequence, _frame, _x, _y, _xscale = 1, _yscale = 1, _rotation = 0 )
+		///	@description Создание экземпляра управляемой последовательности
+		///	@parameter {Asset.GMSequence OR Undefined} _sequence_index Индекс последовательности
+		///	@return {Struct.SEQMotionSequence}
+		static CreateSEQMotionSequence = function( _sequence_index = -1 )
 		{
-				_seqmotion_sequence.__DrawSequence( _frame, _x, _y, _xscale, _yscale, _rotation );
+			return new SEQMotionSequence( _sequence_index );
+		};
+
+		///	@method
+		///	@description Отрисовка управляемой последовательности
+		///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности
+		///	@parameter {Real} _x Позиция, где будет стоять экземпляр последовательности по x
+		///	@parameter {Real} _y Позиция, где будет стоять экземпляр последовательности по y
+		///	@parameter {Real} _depth Глубина сортировки экземпляра последовательности
+		static UpdateSEQSequence = function( _seqmotion_sequence, _x = undefined, _y = undefined, _depth = undefined )
+		{
+				_seqmotion_sequence.__UpdateSequence( _x, _y, _depth );
 		};
 
 	#endregion

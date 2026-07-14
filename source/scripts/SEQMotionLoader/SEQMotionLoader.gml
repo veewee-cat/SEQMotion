@@ -1,4 +1,5 @@
-//	Made by Veewee cat: https://t.me/veewee_cat
+//	Made by Veewee cat
+//	@veewee_cat
 
 //	Загрузка статичных методов основного класса
 //	Создание первого экземпляра класса
