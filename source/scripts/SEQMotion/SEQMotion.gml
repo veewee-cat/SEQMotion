@@ -32,6 +32,11 @@ function SEQMotion( ) constructor
 		
 			#region Данные каналов последовательностей
 			
+				///	@method
+				///	@description Изменение спрайта указанного канала последовательности
+				///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence Экземпляр управляемой последовательности 
+				///	@parameter {String} _track_name Имя канала
+				///	@parameter {Asset.GMSprite} _sprite_index Индекс спрайта для изменения
 				static SetTrackSprite = function( _seqmotion_sequence, _track_name, _sprite_index )
 				{
 						_seqmotion_sequence.__SetTrackSprite( _track_name, _sprite_index );
