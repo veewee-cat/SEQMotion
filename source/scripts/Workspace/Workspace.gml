@@ -1,1 +1,0 @@
-global.surface = surface_create( 2_048, 2_048 );

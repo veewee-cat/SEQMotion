@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"SEQMotionLoader",
+  "%Name":"Script5",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"SEQMotionLoader",
+  "name":"Script5",
   "parent":{
-    "name":"SEQMotion",
-    "path":"folders/Extensions/SEQMotion.yy",
+    "name":"source",
+    "path":"source.yyp",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

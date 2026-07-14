@@ -38,7 +38,19 @@ function SEQMotion( ) constructor
 			///	@return {Struct.SEQMotionSequence}
 			static CreateSEQMotionSequence = function( _sequence_index = -1 )
 			{
-				return new SEQMotionSequence( _sequence_index );
+				return new __SEQMotionSequence_Normal( _sequence_index );
+			};
+			
+			///	@method
+			///	@description													Создание экземпляра динамической управляемой последовательности
+			///																	Этот тип управляемой последовательности позволяет использовать ВЕСЬ 
+			///																	доступный функционал нативных последовательностей, но является
+			///																	более требовательным к ресурсам устройства
+			///	@parameter {Asset.GMSequence OR Undefined} _sequence_index		Индекс последовательности
+			///	@return {Struct.SEQMotionSequenceDynamic}
+			static CreateSEQMotionSequenceDynamic = function( _sequence_index = -1 )
+			{
+				return new __SEQMotionSequence_Dynamic( _sequence_index );
 			};
 		
 			///	@method

@@ -1,4 +1,2 @@
-//
 //	Отрисовка персонажа
-
-	draw_surface( global.surface, 0, 0 );
+SEQMotion.DrawSEQMotionSequence( character, 0, x, y );
