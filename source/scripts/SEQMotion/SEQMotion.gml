@@ -47,6 +47,11 @@ function SEQMotion( ) constructor
 					_seqmotion_sequence.__SetPlaybackSpeed( _playback_speed );
 			};
 			
+			///	@method
+			///	@description													Изменение спрайта конкретного канала последовательности
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
+			///	@parameter {String} _track_name									Имя канала
+			///	@parameter {Asset.GMSprite} _sprite_index						Индекс спрайта
 			static SetTrackSprite = function( _seqmotion_sequence, _track_name, _sprite_index )
 			{
 					_seqmotion_sequence.__SetTrackSprite( _track_name, _sprite_index );
@@ -61,19 +66,7 @@ function SEQMotion( ) constructor
 			///	@return {Struct.SEQMotionSequence}
 			static CreateSEQMotionSequence = function( _sequence_index = -1 )
 			{
-				return new SEQMotionSequence_Normal( _sequence_index );
-			};
-			
-			///	@method
-			///	@description													Создание экземпляра динамической управляемой последовательности
-			///																	Этот тип управляемой последовательности позволяет использовать ВЕСЬ 
-			///																	доступный функционал нативных последовательностей, но является
-			///																	более требовательным к ресурсам устройства
-			///	@parameter {Asset.GMSequence OR Undefined} _sequence_index		Индекс последовательности
-			///	@return {Struct.SEQMotionSequenceDynamic}
-			static CreateSEQMotionSequenceDynamic = function( _sequence_index = -1 )
-			{
-				return new SEQMotionSequence_Dynamic( _sequence_index );
+				return new SEQMotionSequence( _sequence_index );
 			};
 		
 			///	@method

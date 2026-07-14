@@ -37,8 +37,6 @@
     {"id":{"name":"DebugJSON","path":"scripts/DebugJSON/DebugJSON.yy",},},
     {"id":{"name":"SEQMotion","path":"scripts/SEQMotion/SEQMotion.yy",},},
     {"id":{"name":"SEQMotionLoader","path":"scripts/SEQMotionLoader/SEQMotionLoader.yy",},},
-    {"id":{"name":"SEQMotionSequence_Dynamic","path":"scripts/SEQMotionSequence_Dynamic/SEQMotionSequence_Dynamic.yy",},},
-    {"id":{"name":"SEQMotionSequence_Normal","path":"scripts/SEQMotionSequence_Normal/SEQMotionSequence_Normal.yy",},},
     {"id":{"name":"SEQMotionSequence","path":"scripts/SEQMotionSequence/SEQMotionSequence.yy",},},
     {"id":{"name":"Sequence_Character","path":"sequences/Sequence_Character/Sequence_Character.yy",},},
     {"id":{"name":"Sequence_CharacterHands","path":"sequences/Sequence_CharacterHands/Sequence_CharacterHands.yy",},},
