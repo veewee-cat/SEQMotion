@@ -1,2 +1,2 @@
 //	Отрисовка персонажа
-SEQMotion.DrawSEQMotionSequence( character, -1, x, y );
+//SEQMotion.DrawSEQMotionSequence( character, -1, x, y );

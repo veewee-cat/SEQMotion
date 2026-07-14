@@ -6,7 +6,7 @@
   "name":"SEQMotionSequence",
   "parent":{
     "name":"Sequence",
-    "path":"folders/Extensions/SEQMotion/NotUse/Sequence.yy",
+    "path":"folders/Extensions/SEQMotion/Sequence.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

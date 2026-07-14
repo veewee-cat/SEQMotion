@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Icon",
-    "path":"folders/Extensions/SEQMotion/NotUse/Icon.yy",
+    "path":"folders/Extensions/SEQMotion/Icon.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

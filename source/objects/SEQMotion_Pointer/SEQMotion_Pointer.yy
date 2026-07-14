@@ -1,16 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"SEQMotionLocator",
+  "%Name":"SEQMotion_Pointer",
   "eventList":[],
   "managed":true,
-  "name":"SEQMotionLocator",
+  "name":"SEQMotion_Pointer",
   "overriddenProperties":[],
   "parent":{
-    "name":"SEQMotion",
-    "path":"folders/Extensions/SEQMotion.yy",
+    "name":"Pointer",
+    "path":"folders/Extensions/SEQMotion/Pointer.yy",
   },
   "parentObjectId":null,
-  "persistent":true,
+  "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,
@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"__SEQMotion_Icon_Locator",
-    "path":"sprites/__SEQMotion_Icon_Locator/__SEQMotion_Icon_Locator.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":false,
 }
