@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Workspace",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Workspace",
+  "parent":{
+    "name":"source",
+    "path":"source.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

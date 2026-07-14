@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"DebugJSON",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DebugJSON",
+  "parent":{
+    "name":"DevelopmentTools",
+    "path":"folders/DevelopmentTools.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
