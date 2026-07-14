@@ -6,7 +6,6 @@
     {"name":"Sequences","order":4,"path":"folders/Demo/Sequences.yy",},
     {"name":"Sprites","order":2,"path":"folders/Demo/Sprites.yy",},
     {"name":"Character","order":1,"path":"folders/Demo/Sprites/Character.yy",},
-    {"name":"Hands","order":1,"path":"folders/Demo/Sprites/Character/Hands.yy",},
     {"name":"Gun","order":2,"path":"folders/Demo/Sprites/Gun.yy",},
     {"name":"DevelopmentTools","order":4,"path":"folders/DevelopmentTools.yy",},
     {"name":"Extensions","order":2,"path":"folders/Extensions.yy",},
@@ -20,6 +19,7 @@
     {"name":"__SEQMotionSequence_Normal","order":2,"path":"scripts/__SEQMotionSequence_Normal/__SEQMotionSequence_Normal.yy",},
     {"name":"SEQMotion","order":2,"path":"scripts/SEQMotion/SEQMotion.yy",},
     {"name":"Sequence_CharacterHands","order":1,"path":"sequences/Sequence_CharacterHands/Sequence_CharacterHands.yy",},
+    {"name":"Sprite_Character_Hand","order":2,"path":"sprites/Sprite_Character_Hand/Sprite_Character_Hand.yy",},
     {"name":"Sprite_Gun_1","order":1,"path":"sprites/Sprite_Gun_1/Sprite_Gun_1.yy",},
   ],
 }
