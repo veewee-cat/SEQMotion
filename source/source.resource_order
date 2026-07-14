@@ -18,7 +18,6 @@
     {"name":"__SEQMotionLoader","order":3,"path":"scripts/__SEQMotionLoader/__SEQMotionLoader.yy",},
     {"name":"__SEQMotionSequence_Dynamic","order":1,"path":"scripts/__SEQMotionSequence_Dynamic/__SEQMotionSequence_Dynamic.yy",},
     {"name":"__SEQMotionSequence_Normal","order":2,"path":"scripts/__SEQMotionSequence_Normal/__SEQMotionSequence_Normal.yy",},
-    {"name":"Script5","order":5,"path":"scripts/Script5/Script5.yy",},
     {"name":"SEQMotion","order":2,"path":"scripts/SEQMotion/SEQMotion.yy",},
     {"name":"Sequence_CharacterHands","order":1,"path":"sequences/Sequence_CharacterHands/Sequence_CharacterHands.yy",},
     {"name":"Sprite_Gun_1","order":1,"path":"sprites/Sprite_Gun_1/Sprite_Gun_1.yy",},

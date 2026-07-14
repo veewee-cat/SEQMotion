@@ -39,7 +39,6 @@
     {"id":{"name":"__SEQMotionSequence_Dynamic","path":"scripts/__SEQMotionSequence_Dynamic/__SEQMotionSequence_Dynamic.yy",},},
     {"id":{"name":"__SEQMotionSequence_Normal","path":"scripts/__SEQMotionSequence_Normal/__SEQMotionSequence_Normal.yy",},},
     {"id":{"name":"DebugJSON","path":"scripts/DebugJSON/DebugJSON.yy",},},
-    {"id":{"name":"Script5","path":"scripts/Script5/Script5.yy",},},
     {"id":{"name":"SEQMotion","path":"scripts/SEQMotion/SEQMotion.yy",},},
     {"id":{"name":"SEQMotionSequence","path":"scripts/SEQMotionSequence/SEQMotionSequence.yy",},},
     {"id":{"name":"Sequence_Character","path":"sequences/Sequence_Character/Sequence_Character.yy",},},
