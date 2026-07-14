@@ -1,7 +1,7 @@
 #region Переменные
 
-	character = SEQMotion.CreateSEQMotionSequenceDynamic( Sequence_Character );		//	Персонаж
+	character = SEQMotion.CreateSEQMotionSequence( Sequence_Character );		//	Персонаж
 
 #endregion
 
-SEQMotion.SetPlaybackSpeed( character, 0.25 );
+SEQMotion.SetTrackSprite( character, "Gun", Sprite_Gun_1 );

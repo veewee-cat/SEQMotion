@@ -16,6 +16,9 @@ function SEQMotionSequence( _sequence_index ) constructor
 		
 		__playback_speed = 1;	//	Скорость проигрывания анимации текущего и последующих экземпляров последовательностей
 		__frame_length = 0;		//	Индекс последнего кадра текущей последовательности
+		
+		__sprites = { };	//	Структура спрайтов текущей последовательности
+							//	Хранит указатели на спрайты по ключу
 
 	#endregion
 	#region Приватные методы
@@ -69,13 +72,32 @@ function SEQMotionSequence( _sequence_index ) constructor
 					
 					exit;
 				};
-			
-				//	Создание экземпляра последовательности
-				//	Сохранение его индекса
-				__current_sequence = layer_sequence_create( __layer, 0, 0, _sequence_index );
-									 layer_sequence_speedscale( __current_sequence, __playback_speed );
 				
-				__frame_length = layer_sequence_get_sequence( __current_sequence ).length;
+				//
+				//	Создание экземпляра последовательности
+				
+					//	Создание экземпляра последовательности
+					//	Сохранение его индекса
+					__current_sequence = layer_sequence_create( __layer, 0, 0, _sequence_index );
+										 layer_sequence_speedscale( __current_sequence, __playback_speed );
+										 
+					var _sequence_struct = layer_sequence_get_sequence( __current_sequence );
+				
+					//	Получение длины анимации последовательности
+					__frame_length = _sequence_struct.length;
+				
+					//
+					//	Подготовка структуры спрайтов
+				
+						__sprites = { };
+					
+						array_foreach( _sequence_struct.tracks, function( _track )
+						{
+							if ( _track.type == seqtracktype_graphic )
+							{
+								struct_set( __sprites, _track.name, _track.keyframes[ 0 ].channels[ 0 ].spriteIndex );
+							};
+						} );
 			};
 			
 			///	@method
@@ -90,6 +112,16 @@ function SEQMotionSequence( _sequence_index ) constructor
 				
 				//	Сохранение скорости для последующих экземпляров
 				__playback_speed = _playback_speed;
+			};
+			
+			///	@method
+			///	@description									Изменение спрайта конкретного канала последовательности
+			///	@parameter {String} _track_name					Имя канала, указанное в редакторе последовательности
+			///	@parameter {Asset.GMSprite} _sprite_index		Индекс нового спрайта
+			///	@ignore
+			static __SetTrackSprite = function( _track_name, _sprite_index )
+			{
+				struct_set( __sprites, _track_name, _sprite_index );
 			};
 		
 		#endregion

@@ -176,25 +176,25 @@ function SEQMotionSequence_Normal( _sequence_index ): SEQMotionSequence( _sequen
 										  
 									alpha = _active_track.colourmultiply[ ARGB.ALPHA ];
 								};
-								
+
 							//	Расчет конечной позиции спрайта в мировых координата
 							//	Отрисовка спрайта
 							sprite_position = matrix_transform_vertex( matrix_build( _x, _y, 0, 0, 0, _rotation, 1, 1, 1 ), _active_track.posx, _active_track.posy, 0 );
 							draw_sprite_ext
 							(
-									_active_track.spriteIndex,				//	Индекс спрайта
-									_active_track.imageindex,				//	Номер кадра спрайта
+								struct_get( __sprites, _active_track.track.name ),		//	Индекс спрайта
+													   _active_track.imageindex,		//	Номер кадра спрайта
 								
-								sprite_position[ 0 ],						//	Позиция отрисовки, относительно мира игры; По x
-								sprite_position[ 1 ],						//	По y
+								sprite_position[ 0 ],									//	Позиция отрисовки, относительно мира игры; По x
+								sprite_position[ 1 ],									//	По y
 								
-									_active_track.scalex,					//	Растяжение спрайта; По горизонтали
-									_active_track.scaley,					//	По вертикали
+									_active_track.scalex,								//	Растяжение спрайта; По горизонтали
+									_active_track.scaley,								//	По вертикали
 									
-									_active_track.rotation + _rotation,		//	Поворот спрайта
-								
-								color,										//	Конечный цвет
-								alpha										//	Значение альфа-канала
+									_active_track.rotation + _rotation,					//	Поворот спрайта
+									
+								color,													//	Конечный цвет
+								alpha													//	Значение альфа-канала
 							);
 					};
 			};

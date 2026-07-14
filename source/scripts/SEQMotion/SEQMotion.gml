@@ -46,6 +46,11 @@ function SEQMotion( ) constructor
 			{
 					_seqmotion_sequence.__SetPlaybackSpeed( _playback_speed );
 			};
+			
+			static SetTrackSprite = function( _seqmotion_sequence, _track_name, _sprite_index )
+			{
+					_seqmotion_sequence.__SetTrackSprite( _track_name, _sprite_index );
+			};
 		
 		#endregion
 		#region Создание / удаление управляемых последовательностей
