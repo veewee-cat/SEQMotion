@@ -128,7 +128,16 @@ function SEQMotionSequence_Dynamic( _sequence_index ): SEQMotionSequence( _seque
 				
 			//
 			//	Отрисовка экземпляра последовательности
+			
+				//
+				//	Определение конкретного кадра последовательности для отрисовки
+
+					//	Указан конкретный кадр последовательности
+					//	Изменение позиции обработчика экземпляра последовательности
+					if ( _frame != -1 ) layer_sequence_headpos( __current_sequence, _frame mod __frame_length );
 				
+				//	Поверхность рендера существует
+				//	Отрисовка поверхности
 				if ( surface_exists( __render_surface ) ) draw_surface( __render_surface, _x - __canvas_offset_x, _y - __canvas_offset_y );
 		};
 	

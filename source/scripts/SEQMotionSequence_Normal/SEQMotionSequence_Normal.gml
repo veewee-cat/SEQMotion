@@ -42,9 +42,7 @@ function SEQMotionSequence_Normal( _sequence_index ): SEQMotionSequence( _sequen
 				//
 				//	Описание временных переменных
 				
-					static is_custom_frame = false;		//	Отрисовка работает на конкретный кадр
-					static current_headpos = 0;			//	Текущая позиция проигрывателя последовательности
-				
+					static current_headpos = 0;		//	Текущая позиция проигрывателя последовательности
 					static world_matrix = [ ];		//	Данные текущей мировой матрицы
 													//	При отрисовки последовательности матрица изменяется, поэтому необходимо где-то хранить
 													//	временный массив-значений матричной таблицы
@@ -57,26 +55,11 @@ function SEQMotionSequence_Normal( _sequence_index ): SEQMotionSequence( _sequen
 				//	Отрисовка
 			
 					//
-					//	Манипуляция со слоем последовательности
-			
-						layer_sequence_x( __current_sequence, _x );
-						layer_sequence_y( __current_sequence, _y );
-						
-						__x = _x;
-						__y = _y;
-				
-					//
 					//	Определение конкретного кадра последовательности для отрисовки
-			
-						is_custom_frame = _frame != -1;
-				
+
 						//	Указан конкретный кадр последовательности
-						//	Изменение позиции обработчика экземпляра последовательности с предварительным кэшированием текущего
-						if ( is_custom_frame ) 
-						{
-							current_headpos = layer_sequence_get_headpos( __current_sequence );
-											  layer_sequence_headpos( __current_sequence, _frame );
-						};
+						//	Изменение позиции обработчика экземпляра последовательности
+						if ( _frame != -1 ) layer_sequence_headpos( __current_sequence, _frame mod __frame_length );
 				
 					//
 					//	Отрисовка последовательности
@@ -101,10 +84,6 @@ function SEQMotionSequence_Normal( _sequence_index ): SEQMotionSequence( _sequen
 									   
 						//	Сброс мировой матрицы 
 						matrix_set( matrix_world, world_matrix );
-			
-					//	Отрисовка вызывалась на конкретный кадр
-					//	Откат позиции проигрывателя последовательности
-					if ( is_custom_frame ) layer_sequence_headpos( __current_sequence, current_headpos );
 			};
 			
 			///	@method

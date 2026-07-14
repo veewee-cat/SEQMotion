@@ -11,11 +11,12 @@ function SEQMotionSequence( _sequence_index ) constructor
 		__layer = undefined;	//	Слой для хранения и обработки экземпляров последовательностей		
 		
 		__on_create_sequence = _sequence_index;		//	Индекс начальной последовательности
-		__current_sequence = undefined;				//	Указатель на текущую последовательность, которая должна отрисовываться
+		
+		__current_sequence = undefined;		//	Указатель на текущую последовательность, которая должна отрисовываться
+		
+		__playback_speed = 1;	//	Скорость проигрывания анимации текущего и последующих экземпляров последовательностей
+		__frame_length = 0;		//	Индекс последнего кадра текущей последовательности
 
-		__x = 0;	//	Позиция последовательности в мире
-		__y = 0;	//	Используется для пересоздания экземпляров в актуальных позициях
-	
 	#endregion
 	#region Приватные методы
 	
@@ -31,6 +32,15 @@ function SEQMotionSequence( _sequence_index ) constructor
 			static __GetSequence = function( )
 			{
 				return __current_sequence;
+			};
+			
+			///	@method
+			///	@description								Получение скорости проигрывания анимации
+			///	@return {Real}
+			///	@ignore
+			static __GetPlaybackSpeed = function( )
+			{
+				return __playback_speed;
 			};
 		
 		#endregion
@@ -55,18 +65,37 @@ function SEQMotionSequence( _sequence_index ) constructor
 				if ( _sequence_index == -1 )
 				{
 					__current_sequence = undefined;
+					__frame_length = 0;
+					
 					exit;
 				};
 			
 				//	Создание экземпляра последовательности
 				//	Сохранение его индекса
-				__current_sequence = layer_sequence_create( __layer, __x, __y, _sequence_index );
+				__current_sequence = layer_sequence_create( __layer, 0, 0, _sequence_index );
+									 layer_sequence_speedscale( __current_sequence, __playback_speed );
+				
+				__frame_length = layer_sequence_get_sequence( __current_sequence ).length;
+			};
+			
+			///	@method
+			///	@description						Изменение скорости проигрывания анимации
+			///	@parameter {Real} _playback_speed	Новая скорость анимации
+			///	@ignore
+			static __SetPlaybackSpeed = function( _playback_speed )
+			{
+				//	Текущий экземпляр существует
+				//	Изменение скорости проигрывания анимации
+				if ( not is_undefined( __current_sequence ) ) layer_sequence_speedscale( __current_sequence, _playback_speed );
+				
+				//	Сохранение скорости для последующих экземпляров
+				__playback_speed = _playback_speed;
 			};
 		
 		#endregion
 		
 		///	@method
-		///	@description													Обработка события создания нового экземпляра последовательности
+		///	@description	Обработка события создания нового экземпляра последовательности
 		///	@ignore
 		static __OnCreate = function( )
 		{

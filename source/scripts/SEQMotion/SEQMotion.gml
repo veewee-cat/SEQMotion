@@ -16,6 +16,15 @@ function SEQMotion( ) constructor
 			{
 				return _seqmotion_sequence.__GetSequence( );
 			};
+			
+			///	@method
+			///	@description													Получение скорости проигрывания анимации последовательности
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
+			///	@return {Real}
+			static GetPlaybackSpeed = function( _seqmotion_sequence )
+			{
+				return _seqmotion_sequence.__GetPlaybackSpeed( );
+			};
 		
 		#endregion
 		#region Set-методы
@@ -27,6 +36,15 @@ function SEQMotion( ) constructor
 			static SetSequence = function( _seqmotion_sequence, _sequence_index = -1 )
 			{
 					_seqmotion_sequence.__SetSequence( _sequence_index );
+			};
+			
+			///	@method
+			///	@description													Изменение скорости проигрывания анимации последовательности
+			///	@parameter {Struct.SEQMotionSequence} _seqmotion_sequence		Экземпляр управляемой последовательности
+			///	@parameter {Real} _seqmotion_sequence							Новая скорость
+			static SetPlaybackSpeed = function( _seqmotion_sequence, _playback_speed )
+			{
+					_seqmotion_sequence.__SetPlaybackSpeed( _playback_speed );
 			};
 		
 		#endregion
