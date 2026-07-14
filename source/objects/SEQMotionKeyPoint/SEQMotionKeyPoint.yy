@@ -1,19 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"CharacterSpawner",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":50,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"SEQMotionKeyPoint",
+  "eventList":[],
   "managed":true,
-  "name":"CharacterSpawner",
+  "name":"SEQMotionKeyPoint",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Demo/Objects.yy",
+    "name":"SEQMotion",
+    "path":"folders/Extensions/SEQMotion.yy",
   },
   "parentObjectId":null,
-  "persistent":false,
+  "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,
@@ -30,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"__SEQMotion_Icon_KeyPoint",
+    "path":"sprites/__SEQMotion_Icon_KeyPoint/__SEQMotion_Icon_KeyPoint.yy",
+  },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

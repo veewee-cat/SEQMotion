@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"SEQMotionLoader",
   "parent":{
-    "name":"SEQMotion",
-    "path":"folders/Extensions/SEQMotion.yy",
+    "name":"NotUse",
+    "path":"folders/Extensions/SEQMotion/NotUse.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

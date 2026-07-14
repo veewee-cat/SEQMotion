@@ -26,6 +26,15 @@ function SEQMotionSequence( _sequence_index ) constructor
 		__playback_speed = 1;	//	Скорость проигрывания анимации текущего и последующих экземпляров последовательностей
 		__frame_length = 0;		//	Индекс последнего кадра текущей последовательности
 		
+		__tracks =
+		{
+			sprites: { },
+			key_points: 
+			[
+				
+			]
+		};
+		
 		__sprites = { };	//	Структура спрайтов текущей последовательности
 							//	Хранит указатели на спрайты по ключу
 	
@@ -209,7 +218,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 			///	@parameter {Real} _y					Значение смещения отрисовки по y
 			///	@parameter {Real} _rotation				Смещение наклона в градусах
 			///	@ignore
-			static __DrawActiveTrack = function( _active_track, _x = 0, _y = 0, _rotation = 0 )
+			static __DrawActiveTrack = function( _active_track )
 			{
 				//
 				//	Описание временных переменных
@@ -229,26 +238,73 @@ function SEQMotionSequence( _sequence_index ) constructor
 				
 					//	Канал является группой элементов
 					//	Рекурсивный обход его дочерних элементов
-					if ( _active_track.track.type == seqtracktype_group )
+					if ( __IsTrackKeyPoint( _active_track.track ) )
 					{
 						//	Группу элементов можно передвигать
 						//	Это значит, что нужно дополнительно расчитывать значение смещения позиции отрисовки
-						var _position = matrix_transform_vertex( matrix_build( _x, _y, 0, 0, 0, _rotation, 1, 1, 1 ), _active_track.posx, _active_track.posy, 0 );
 						
 						active_track_index = 0;
 						
+						//
+						//	Установка временной матрицы
+						
+							var _matrix = matrix_get( matrix_world );
+								
+							matrix_set( matrix_world, matrix_multiply(
+								//
+								//	Матрица растяжения 
+								
+									matrix_build
+									( 
+										0,
+										0, 
+										0, 
+										0, 
+										0,
+										0,
+										_active_track.scalex, 
+										_active_track.scaley, 
+										1 
+									), 
+								
+								//
+								//	Поворот
+								
+									matrix_multiply( matrix_build
+									(
+										0, 
+										0, 
+										0, 
+										0,
+										0,
+										_active_track.rotation, 
+										1, 
+										1,
+										1 
+									),
+								//
+								//	Позиция
+								
+									matrix_multiply( matrix_build
+									( 
+										_active_track.posx, 
+										_active_track.posy,
+										0, 
+										0, 
+										0,
+										0,
+										1,
+										1,
+										1
+									), _matrix ) )
+							) );
+
 						//	Рекурсивный обход дочерних элементов группы
 						//	с передачей позиции смещения и значения поворота
-						repeat ( array_length( _active_track.activeTracks ) ) __DrawActiveTrack
-						(
-								_active_track.activeTracks[ active_track_index ++ ],	//	Структура канала
-							
-								_position[ 0 ],											//	Позиция смещения; По x
-								_position[ 1 ],											//	По y
-							
-								_rotation + _active_track.rotation						//	Значение смещения поворота
-						);
+						repeat ( array_length( _active_track.activeTracks ) ) __DrawActiveTrack( _active_track.activeTracks[ active_track_index ++ ] );
 						
+						//	Сброс временной матрицы
+						matrix_set( matrix_world, _matrix );
 						exit;
 					};
 					
@@ -282,22 +338,21 @@ function SEQMotionSequence( _sequence_index ) constructor
 										  
 									alpha = _active_track.colourmultiply[ ARGB.ALPHA ];
 								};
-
+								
 							//	Расчет конечной позиции спрайта в мировых координата
 							//	Отрисовка спрайта
-							sprite_position = matrix_transform_vertex( matrix_build( _x, _y, 0, 0, 0, _rotation, 1, 1, 1 ), _active_track.posx, _active_track.posy, 0 );
 							draw_sprite_ext
 							(
 								struct_get( __sprites, _active_track.track.name ),		//	Индекс спрайта
 													   _active_track.imageindex,		//	Номер кадра спрайта
 								
-								sprite_position[ 0 ],									//	Позиция отрисовки, относительно мира игры; По x
-								sprite_position[ 1 ],									//	По y
+									_active_track.posx,									//	Позиция отрисовки, относительно мира игры; По x
+									_active_track.posy,									//	По y
 								
 									_active_track.scalex,								//	Растяжение спрайта; По горизонтали
 									_active_track.scaley,								//	По вертикали
 									
-									_active_track.rotation + _rotation,					//	Поворот спрайта
+									_active_track.rotation,								//	Поворот спрайта
 									
 								color,													//	Конечный цвет
 								alpha													//	Значение альфа-канала
@@ -353,11 +408,21 @@ function SEQMotionSequence( _sequence_index ) constructor
 			
 			//	Канал является группой элементов
 			//	Рекурсивный обход вложенных элементов
-			if ( _track.type == seqtracktype_group )
+			if ( __IsTrackKeyPoint( _track ) )
 			{
 				array_foreach( _track.tracks, __ParseTrack );
 				exit;
 			};
+		};
+		
+		///	@method
+		///	@description						Является ли канал ключевой точкой
+		///	@parameter {Struct.Track} _track	Указатель на структуру канала
+		///	@return {Bool}
+		///	@ignore
+		static __IsTrackKeyPoint = function( _track )
+		{
+			return _track.type == seqtracktype_instance;
 		};
 	
 	#endregion
