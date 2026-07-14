@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"__SEQMotionSequence_Normal",
+  "%Name":"SEQMotionSequence_Normal",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"__SEQMotionSequence_Normal",
+  "name":"SEQMotionSequence_Normal",
   "parent":{
     "name":"Sequence",
     "path":"folders/Extensions/SEQMotion/Sequence.yy",

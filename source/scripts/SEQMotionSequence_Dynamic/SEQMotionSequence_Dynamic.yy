@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"__SEQMotionSequence_Dynamic",
+  "%Name":"SEQMotionSequence_Dynamic",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"__SEQMotionSequence_Dynamic",
+  "name":"SEQMotionSequence_Dynamic",
   "parent":{
     "name":"Sequence",
     "path":"folders/Extensions/SEQMotion/Sequence.yy",

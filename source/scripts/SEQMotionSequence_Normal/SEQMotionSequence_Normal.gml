@@ -4,7 +4,7 @@
 ///	@description													Управляемая последовательность
 ///	@parameter {Asset.GMSequence OR Undefined} _sequence_index		Индекс последовательности
 ///	@ignore
-function __SEQMotionSequence_Normal( _sequence_index ): SEQMotionSequence( _sequence_index ) constructor
+function SEQMotionSequence_Normal( _sequence_index ): SEQMotionSequence( _sequence_index ) constructor
 {
 	#region Макросы и enumы
 	

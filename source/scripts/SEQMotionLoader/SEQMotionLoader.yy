@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"__SEQMotionLoader",
+  "%Name":"SEQMotionLoader",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"__SEQMotionLoader",
+  "name":"SEQMotionLoader",
   "parent":{
     "name":"SEQMotion",
     "path":"folders/Extensions/SEQMotion.yy",

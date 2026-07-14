@@ -38,7 +38,7 @@ function SEQMotion( ) constructor
 			///	@return {Struct.SEQMotionSequence}
 			static CreateSEQMotionSequence = function( _sequence_index = -1 )
 			{
-				return new __SEQMotionSequence_Normal( _sequence_index );
+				return new SEQMotionSequence_Normal( _sequence_index );
 			};
 			
 			///	@method
@@ -50,7 +50,7 @@ function SEQMotion( ) constructor
 			///	@return {Struct.SEQMotionSequenceDynamic}
 			static CreateSEQMotionSequenceDynamic = function( _sequence_index = -1 )
 			{
-				return new __SEQMotionSequence_Dynamic( _sequence_index );
+				return new SEQMotionSequence_Dynamic( _sequence_index );
 			};
 		
 			///	@method

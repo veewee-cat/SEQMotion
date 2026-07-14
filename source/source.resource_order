@@ -14,10 +14,10 @@
   ],
   "ResourceOrderSettings":[
     {"name":"CharacterSpawner","order":1,"path":"objects/CharacterSpawner/CharacterSpawner.yy",},
-    {"name":"__SEQMotionLoader","order":3,"path":"scripts/__SEQMotionLoader/__SEQMotionLoader.yy",},
-    {"name":"__SEQMotionSequence_Dynamic","order":1,"path":"scripts/__SEQMotionSequence_Dynamic/__SEQMotionSequence_Dynamic.yy",},
-    {"name":"__SEQMotionSequence_Normal","order":2,"path":"scripts/__SEQMotionSequence_Normal/__SEQMotionSequence_Normal.yy",},
     {"name":"SEQMotion","order":2,"path":"scripts/SEQMotion/SEQMotion.yy",},
+    {"name":"SEQMotionLoader","order":3,"path":"scripts/SEQMotionLoader/SEQMotionLoader.yy",},
+    {"name":"SEQMotionSequence_Dynamic","order":1,"path":"scripts/SEQMotionSequence_Dynamic/SEQMotionSequence_Dynamic.yy",},
+    {"name":"SEQMotionSequence_Normal","order":2,"path":"scripts/SEQMotionSequence_Normal/SEQMotionSequence_Normal.yy",},
     {"name":"Sequence_CharacterHands","order":1,"path":"sequences/Sequence_CharacterHands/Sequence_CharacterHands.yy",},
     {"name":"Sprite_Character_Hand","order":2,"path":"sprites/Sprite_Character_Hand/Sprite_Character_Hand.yy",},
     {"name":"Sprite_Gun_1","order":1,"path":"sprites/Sprite_Gun_1/Sprite_Gun_1.yy",},
