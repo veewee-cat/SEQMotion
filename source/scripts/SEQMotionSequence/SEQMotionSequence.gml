@@ -99,15 +99,12 @@ function SEQMotionSequence( _sequence_index ) constructor
 					//
 					//	Подготовка структуры спрайтов
 				
+						//	Очистка предыдущей структуры спрайтов
+						//	Для каждого нового экземпляра последовательности она будет уникальна
 						__sprites = { };
-					
-						array_foreach( _sequence_struct.tracks, function( _track )
-						{
-							if ( _track.type == seqtracktype_graphic )
-							{
-								struct_set( __sprites, _track.name, _track.keyframes[ 0 ].channels[ 0 ].spriteIndex );
-							};
-						} );
+						
+						//	Парсинг каналов последовательности
+						array_foreach( _sequence_struct.tracks, __ParseTrack );
 			};
 			
 			///	@method
@@ -338,6 +335,29 @@ function SEQMotionSequence( _sequence_index ) constructor
 			
 			__layer = layer_create( 0 );
 					  layer_set_visible( __layer, false );
+		};
+		
+		///	@method
+		///	@description						Парсинг канала последовательности
+		///	@parameter {Struct.Track} _track	Указатель на структуру канала последовательности
+		///	@ignore
+		static __ParseTrack = function( _track )
+		{
+			//	Канал является графическим ( содержит спрайт )
+			//	Сохранение указателя на спрайт канала
+			if ( _track.type == seqtracktype_graphic )
+			{
+				struct_set( __sprites, _track.name, _track.keyframes[ 0 ].channels[ 0 ].spriteIndex );
+				exit;
+			};
+			
+			//	Канал является группой элементов
+			//	Рекурсивный обход вложенных элементов
+			if ( _track.type == seqtracktype_group )
+			{
+				array_foreach( _track.tracks, __ParseTrack );
+				exit;
+			};
 		};
 	
 	#endregion
