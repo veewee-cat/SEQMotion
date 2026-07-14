@@ -5,7 +5,7 @@
 ///	@parameter {Asset.GMSequence OR Undefined} _sequence_index		Индекс последовательности
 function SEQMotionSequence( _sequence_index ) constructor
 {
-	#region Макросы и enum'ы
+	#region Макросы и enum
 	
 		enum ARGB	//	Индексы матрицы ARGB цвета
 		{
