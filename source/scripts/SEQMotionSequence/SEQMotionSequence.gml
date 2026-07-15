@@ -22,9 +22,12 @@ function SEQMotionSequence( _sequence_index ) constructor
 		
 		__xscale = 1;	//	Фактор растяжения последовательности; По x
 		__yscale = 1;	//	По y
+		
+		__rotation = 0;		//	Угол поворота управляемой последовательности
 
 		__depth = 0;	//	Глубина слоя экземпляров последовательностей
 		
+		__frame = 0;				//	Кадр анимации текущего экземпляра последовательности
 		__animation_length = 0;		//	Длина анимации текущей последовательности в количестве кадров
 		__playback_speed = 60;		//	Множитель скорости анимации
 
@@ -109,6 +112,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 					__sequence = sequence_get( _sequence_index );
 					__can_be_updated = true;
 				
+					__frame = 0;
 					__animation_length = __sequence.length;
 					__playback_speed = __sequence.playbackSpeed;
 					
@@ -195,7 +199,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 						layer_sequence_xscale( __sequence_instance, __xscale );
 						layer_sequence_yscale( __sequence_instance, __yscale );
 					
-						layer_sequence_headpos( __sequence_instance, layer_sequence_get_headpos( __sequence_instance ) mod __animation_length );
+						layer_sequence_headpos( __sequence_instance, __frame mod __animation_length );
 						
 						layer_sequence_angle( __sequence_instance, __rotation );
 				
@@ -224,6 +228,9 @@ function SEQMotionSequence( _sequence_index ) constructor
 					
 						layer_depth( __layer, _depth );
 					};
+					
+					//	Обновление значения текущего кадра анимации текущего экземпляра последовательности
+					__frame = layer_sequence_get_headpos( __sequence_instance );
 		};
 		
 		///	@method
