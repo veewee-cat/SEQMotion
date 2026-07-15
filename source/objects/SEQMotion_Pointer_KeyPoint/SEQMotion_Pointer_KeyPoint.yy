@@ -1,18 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"SEQMotion_Pointer",
+  "%Name":"SEQMotion_Pointer_KeyPoint",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"SEQMotion_Pointer",
+  "name":"SEQMotion_Pointer_KeyPoint",
   "overriddenProperties":[],
   "parent":{
     "name":"Pointer",
     "path":"folders/Extensions/SEQMotion/Pointer.yy",
   },
   "parentObjectId":null,
-  "persistent":false,
+  "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,
@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"__SEQMotion_Icon_KeyPoint",
+    "path":"sprites/__SEQMotion_Icon_KeyPoint/__SEQMotion_Icon_KeyPoint.yy",
+  },
   "spriteMaskId":null,
   "visible":false,
 }

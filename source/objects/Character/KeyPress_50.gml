@@ -1,2 +1,2 @@
 //	Изменение спрайта
-SEQMotion.SetTrackSprite( character, "Gun", Sprite_Gun_2 );
+SEQMotion.SetTrackSprite( hands, "Gun", Sprite_Gun_2 );
