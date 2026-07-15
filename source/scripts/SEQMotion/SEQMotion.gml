@@ -188,8 +188,8 @@ function SEQMotion( ) constructor
 		///	@method
 		///	@description Отрисовка управляемой последовательности
 		///	@parameter {Id.SEQMotionSequence} _seqmotion_sequence_id Уникальный идентификатор управляемой последовательности
-		///	@parameter {Real} _x Позиция, где будет стоять экземпляр последовательности по x
-		///	@parameter {Real} _y Позиция, где будет стоять экземпляр последовательности по y
+		///	@parameter {Real} _x Позиция экземпляра по x
+		///	@parameter {Real} _y Позиция экземпляра по y
 		///	@parameter {Real} _depth Глубина сортировки экземпляра последовательности
 		static UpdateSequence = function( _seqmotion_sequence_id, _x = undefined, _y = undefined, _depth = undefined )
 		{
