@@ -10,11 +10,11 @@ SEQMotion.SequenceExists( _seqmotion_sequence_id )
 
 ### Параметры метода
 
-![DeleteSequence_Parameters](images/SequenceExists_Parameters.png)
+![DeleteSequence_Parameters](.images/SequenceExists_Parameters.png)
 
 ### Возвращаемое значение
 
-![DeleteSequence_ReturnValue](images/SequenceExists_ReturnValue.png)
+![DeleteSequence_ReturnValue](.images/SequenceExists_ReturnValue.png)
 
 ### Пример
 
