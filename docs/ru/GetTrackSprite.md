@@ -5,7 +5,7 @@
 ### Синтаксис
 
 ```c#
-SEQMotion.GetTrackSprite( _seqmotion_sequence_id )
+SEQMotion.GetTrackSprite( _seqmotion_sequence_id, _track_name )
 ```
 
 ### Параметры метода
