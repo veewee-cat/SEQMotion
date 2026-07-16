@@ -6,7 +6,7 @@
 ### Синтаксис
 
 ```c#
-SEQMotion.CreateSequence( _sequence_index )
+SEQMotion.CreateSequence( [ _sequence_index ] )
 ```
 
 ### Параметры метода
