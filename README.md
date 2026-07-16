@@ -1,10 +1,10 @@
-![banner](images/banner.png)
+![Banner](.images/Banner.png)
 
 **SEQMotion** — расширение, позволяющее использовать последовательности ( Sequences ) обособленно как спрайты. Вы можете рисовать их, применяя на них шейдеры, можете отрисовывать на поверхностях, вставлять и обрабатывать Broadcast события. Встроенный в сам **GameMaker** редактор последовательностей наконец-то станет чуть более полезным~
 
-![promo](images/promo.gif)
+![Promo](.images/Promo.gif)
 
-![warning](images/warning.png)
+![Warning](.images/Warning.png)
 
 ## Установка
 
