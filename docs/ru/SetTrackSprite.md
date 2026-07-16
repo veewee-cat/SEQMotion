@@ -6,7 +6,7 @@
 ### Синтаксис
 
 ```c#
-SEQMotion.SetTrackSprite( _seqmotion_sequence_id )
+SEQMotion.SetTrackSprite( _seqmotion_sequence_id, _track_name, _sprite )
 ```
 
 ### Параметры метода
