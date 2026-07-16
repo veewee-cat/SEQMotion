@@ -1,6 +1,6 @@
 ## CreateSequence
 
-Создание экземпляра управляемой последовательности. При указании индекса существующей последовательности она становится текущей при первом вызове [**UpdateSequence**](/docs/ru/,md). Параметр `_sequence_index` является необязательным, его можно будет установить позже, используя метод [**SetSequence**](https://github.com/veewee-cat/SEQMotion/edit/main/docs/ru/Set-методы/SetSequence.md)
+Создание экземпляра управляемой последовательности. При указании индекса существующей последовательности она становится текущей при первом вызове [**UpdateSequence**](UpdateSequence.md). Параметр `_sequence_index` является необязательным, его можно будет установить позже, используя метод [**SetSequence**](https://github.com/veewee-cat/SEQMotion/edit/main/docs/ru/Set-методы/SetSequence.md)
 
 `Внимание!` Не забудьте удалить экземпляр управляемой последовательности из памяти после того, как закончите им пользоваться. В противном случае возможна утечка памяти. Используйте для этого метод [**DeleteSequence**](https://github.com/veewee-cat/SEQMotion/edit/main/docs/ru/DeleteSequence.md)
 ### Синтаксис
