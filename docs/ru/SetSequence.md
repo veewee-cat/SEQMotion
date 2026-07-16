@@ -15,7 +15,7 @@ SEQMotion.SetSequence( _seqmotion_sequence_id, _sequence_index, [ _reset ] )
 
 ### Возвращаемое значение
 
-![SetSequence_Parameters](.images/SetSequence_ReturnValue.png)
+![SetSequence_ReturnValue](.images/SetSequence_ReturnValue.png)
 
 <br>
 <br>
