@@ -10,11 +10,11 @@ SEQMotion.UpdateSequence( _seqmotion_sequence_id, _x, _y, _depth )
 
 ### Параметры метода
 
-![UpdateSequence_Parameters](images/UpdateSequence_Parameters.png)
+![UpdateSequence_Parameters](.images/UpdateSequence_Parameters.png)
 
 ### Возвращаемое значение
 
-![UpdateSequence_ReturnValue](images/UpdateSequence_ReturnValue.png)
+![UpdateSequence_ReturnValue](.images/UpdateSequence_ReturnValue.png)
 
 ### Пример
 
