@@ -134,25 +134,24 @@ function SEQMotionSequence( _sequence_index ) constructor
 			static __SetTrackSprite = function( _track_name, _sprite_index )
 			{
 				//	В последовательности нет канала с указанным именем
-				//	Вывод ошибки
-				if ( not struct_exists( __sprites, _track_name ) ) 
-				{
-					show_error( $"В последовательности '{ __sequence.name }' нет канала с именем '{ _track_name }'", true );
-					exit;
-				};
+				//	Ранний выход
+				if ( not struct_exists( __sprites, _track_name ) ) exit;
 					
-				//	Сброс последовательности
-				__ResetSequence( );
+				//
+				//	Изменение спрайта канала
 					
-				//	Изменение параметров ассета последовательности
-				struct_get( __sprites, _track_name ).spriteIndex = _sprite_index;
+					//	Сброс последовательности
+					__ResetSequence( );
 					
-				//	Парсинг новых данных последовательности
-				__ParseSequenceData( );
+					//	Изменение параметров ассета последовательности
+					struct_get( __sprites, _track_name ).spriteIndex = _sprite_index;
 					
-				//	Предыдущий экземпляр последовательности был обновлен ранее
-				//	Обновление последовательности
-				if ( __has_been_ready ) __UpdateSequence( );
+					//	Парсинг новых данных последовательности
+					__ParseSequenceData( );
+					
+					//	Предыдущий экземпляр последовательности был обновлен ранее
+					//	Обновление последовательности
+					if ( __has_been_ready ) __UpdateSequence( );
 			};
 
 			///	@method
