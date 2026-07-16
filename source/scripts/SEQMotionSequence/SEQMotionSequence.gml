@@ -64,7 +64,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 			///	@parameter {String} _locator_name Имя локатора
 			///	@return {Struct OR Undefined}
 			///	@ignore
-			static __GetTrackLocatorData = function( _locator_name )
+			static __GetLocatorData = function( _locator_name )
 			{
 				//	Текущей последовательности не существует
 				//	Возвращение неизвестного указателя

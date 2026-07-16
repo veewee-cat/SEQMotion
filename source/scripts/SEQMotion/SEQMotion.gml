@@ -21,9 +21,9 @@ function SEQMotion( ) constructor
 			///	@parameter {Id.SEQMotionSequence} _seqmotion_sequence_id Уникальный идентификатор управляемой последовательности
 			///	@parameter {String} _locator_name Имя локатора
 			///	@return {Struct OR Undefined}
-			static GetTrackLocatorData = function( _seqmotion_sequence_id, _locator_name )
+			static GetLocatorData = function( _seqmotion_sequence_id, _locator_name )
 			{
-				return __GetSequence( _seqmotion_sequence_id ).__GetTrackLocatorData( _locator_name );
+				return __GetSequence( _seqmotion_sequence_id ).__GetLocatorData( _locator_name );
 			};
 		
 			///	@method

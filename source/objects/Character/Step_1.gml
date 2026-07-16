@@ -16,7 +16,7 @@ depth = -y;
 
 		//	Обращение к данным локатора
 		//	Обновление рук персонажа в позиции локатора
-		with ( SEQMotion.GetTrackLocatorData( character, "Hands" ) ) 
+		with ( SEQMotion.GetLocatorData( character, "Hands" ) ) 
 		{
 			SEQMotion.UpdateSequence( _hands, x, y, _depth - 1 );
 			SEQMotion.SetRotation( _hands, rotation );
