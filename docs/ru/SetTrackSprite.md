@@ -15,7 +15,7 @@ SEQMotion.SetTrackSprite( _seqmotion_sequence_id, _track_name, _sprite )
 
 ### Возвращаемое значение
 
-![SetTrackSprite_Parameters](.images/SetTrackSprite_ReturnValue.png)
+![SetTrackSprite_ReturnValue](.images/SetTrackSprite_ReturnValue.png)
 
 <br>
 <br>
