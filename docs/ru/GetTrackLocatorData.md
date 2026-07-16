@@ -9,7 +9,7 @@
 ### Синтаксис
 
 ```c#
-SEQMotion.GetLocatorData( _seqmotion_index, _locator_name )
+SEQMotion.GetLocatorData( _seqmotion_sequence_id, _locator_name )
 ```
 
 ### Параметры метода
