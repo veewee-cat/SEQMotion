@@ -1,6 +1,7 @@
 ### `GetAnimationSpeed`
 
 Метод возвращает множительно скорости анимации управляемой последовательности, аналогичный возвращаемому значению функции [layer_sequence_get_speedscale](https://manual.gamemaker.io/beta/en/GameMaker_Language/GML_Reference/Asset_Management/Rooms/Sequence_Layers/layer_sequence_get_speedscale.htm)
+`Внимание!` Множитель скорости проигрывания анимации и значение **playback-скорости** в редакторе последовательностей это разные значения
 
 ### Синтаксис
 
