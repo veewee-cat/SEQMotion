@@ -98,9 +98,10 @@ function SEQMotion( ) constructor
 			///	@description Изменение индекса последовательности
 			///	@parameter {Id.SEQMotionSequence} _seqmotion_sequence_id Уникальный идентификатор управляемой последовательности
 			///	@parameter {Asset.GMSequence} _sequence_index Индекс последовательности
-			static SetSequence = function( _seqmotion_sequence_id, _sequence_index )
+			///	@parameter {Bool} _reset Нужно ли сбрасывать позицию текущего кадра анимации
+			static SetSequence = function( _seqmotion_sequence_id, _sequence_index, _reset = true )
 			{
-				__GetSequence( _seqmotion_sequence_id ).__SetSequence( _sequence_index );
+				__GetSequence( _seqmotion_sequence_id ).__SetSequence( _sequence_index, _reset );
 			};
 			
 			///	@method

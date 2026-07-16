@@ -128,8 +128,8 @@ function SEQMotionSequence( _sequence_index ) constructor
 
 			///	@method
 			///	@description Изменение спрайта указанного канала последовательности
-			///	@parameter {String} _track_name Имя канала
-			///	@parameter {Asset.GMSprite} _sprite_index Индекс спрайта для изменения
+			///	@parameter {String} _track_name
+			///	@parameter {Asset.GMSprite} _sprite_index
 			///	@ignore
 			static __SetTrackSprite = function( _track_name, _sprite_index )
 			{
@@ -156,9 +156,10 @@ function SEQMotionSequence( _sequence_index ) constructor
 
 			///	@method
 			///	@description Изменение индекса последовательности
-			///	@parameter {Asset.GMSequence} _sequence_index Индекс последовательности
+			///	@parameter {Asset.GMSequence} _sequence_index
+			///	@parameter {Bool} _reset
 			///	@ignore
-			static __SetSequence = function( _sequence_index )
+			static __SetSequence = function( _sequence_index, _reset )
 			{
 				//	Сброс последовательности
 				__ResetSequence( );
@@ -177,9 +178,12 @@ function SEQMotionSequence( _sequence_index ) constructor
 					__sequence = sequence_get( _sequence_index );
 					__can_be_updated = true;
 				
-					__frame = 0;
 					__animation_length = __sequence.length;
 					__playback_speed = __sequence.playbackSpeed;
+					
+					//	Проверка того, что позицию текущего кадра нужно сбросить
+					//	Иначе она будет останется неизменной
+					__frame = ( __frame mod __animation_length ) * ( not _reset );
 					
 				//	Парсинг данных последовательности
 				__ParseSequenceData( );
@@ -191,7 +195,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 			
 			///	@method
 			///	@description Изменение фактора растяжения по x
-			///	@parameter {Real} _xscale Фактор растяжения по x
+			///	@parameter {Real} _xscale
 			///	@ignore
 			static __SetXscale = function( _xscale )
 			{
@@ -204,7 +208,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 			
 			///	@method
 			///	@description Изменение фактора растяжения по y
-			///	@parameter {Real} _yscale Фактор растяжения по y
+			///	@parameter {Real} _yscale
 			///	@ignore
 			static __SetYscale = function( _yscale )
 			{
@@ -217,7 +221,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 			
 			///	@method
 			///	@description Изменение угла наклона последовательности
-			///	@parameter {Real} _rotation Угол наклона в градусах
+			///	@parameter {Real} _rotation
 			///	@ignore
 			static __SetRotation = function( _rotation )
 			{
@@ -230,7 +234,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 			
 			///	@method
 			///	@description Изменение множителя скорости анимации
-			///	@parameter {Real} _animation_speed Скорость анимации
+			///	@parameter {Real} _animation_speed
 			///	@ignore
 			static __SetAnimationSpeed = function( _animation_speed )
 			{
@@ -258,7 +262,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 			
 			///	@method
 			///	@description Изменение текущего кадра анимации
-			///	@parameter {Real} _frame Индекс кадра анимации
+			///	@parameter {Real} _frame
 			///	@ignore
 			static __SetFrame = function( _frame )
 			{
@@ -300,8 +304,8 @@ function SEQMotionSequence( _sequence_index ) constructor
 		
 			///	@method
 			///	@description Удаление экземпляра локатора
-			///	@parameter {String} _ Имя локатора
-			///	@parameter {Id.Instance} _instance Экземпляр локатора
+			///	@parameter {String} _
+			///	@parameter {Id.Instance} _instance
 			///	@ignore
 			static __DeleteLocatorInstance = function( _, _instance )
 			{
@@ -328,7 +332,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 			
 			///	@method
 			///	@description Парсинг данных канала
-			///	@parameter {Struct.Track} _track Структура канала последовательности
+			///	@parameter {Struct.Track} _track
 			///	@ignore
 			static __ParseTrack = function( _track )
 			{
@@ -361,9 +365,9 @@ function SEQMotionSequence( _sequence_index ) constructor
 		
 		///	@method
 		///	@description Обновление текущего экземпляра последовательности
-		///	@parameter {Real} _x Позиция, где будет стоять экземпляр последовательности по x
-		///	@parameter {Real} _y Позиция, где будет стоять экземпляр последовательности по y
-		///	@parameter {Real} _depth Глубина сортировки экземпляра последовательности
+		///	@parameter {Real} _x
+		///	@parameter {Real} _y
+		///	@parameter {Real} _depth
 		///	@ignore
 		static __UpdateSequence = function( _x = __x, _y = __y, _depth = __depth )
 		{
@@ -453,7 +457,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 	#region При создании
 	
 		//	Изменение индекса последовательности
-		__SetSequence( _sequence_index );
+		__SetSequence( _sequence_index, false );
 	
 	#endregion
 };
