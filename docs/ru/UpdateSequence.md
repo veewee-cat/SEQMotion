@@ -5,7 +5,7 @@
 ### Синтаксис
 
 ```c#
-SEQMotion.UpdateSequence( _seqmotion_sequence_id, _x, _y, _depth )
+SEQMotion.UpdateSequence( _seqmotion_sequence_id, [ _x ], [ _y ], [ _depth ] )
 ```
 
 ### Параметры метода
