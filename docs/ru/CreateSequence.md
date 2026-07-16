@@ -1,4 +1,4 @@
-> ### CreateSequence
+## CreateSequence
 
 Создание экземпляра управляемой последовательности. При указании индекса существующей последовательности она становится текущей при первом вызове [UpdateSequence](#updatesequence). Параметр `_sequence_index` является необязательным, его можно будет установить позже, используя метод `SetSequence`
 
@@ -16,7 +16,10 @@ SEQMotion.CreateSequence( _sequence_index )
 
 ### Возвращаемое значение
 
-![CreateSequence_ReturnValue](images/CreateSequence_ReturnValue.png)
+![CreateSequence_Parameters](images/CreateSequence_ReturnValue.png)
+
+<br>
+<br>
 
 ### Пример
 
