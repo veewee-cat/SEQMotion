@@ -12,11 +12,11 @@ SEQMotion.CreateSequence( _sequence_index )
 
 ### Параметры метода
 
-![CreateSequence_Parameters](images/CreateSequence_Parameters.png)
+![CreateSequence_Parameters](.images/CreateSequence_Parameters.png)
 
 ### Возвращаемое значение
 
-![CreateSequence_Parameters](images/CreateSequence_ReturnValue.png)
+![CreateSequence_Parameters](.images/CreateSequence_ReturnValue.png)
 
 <br>
 <br>
