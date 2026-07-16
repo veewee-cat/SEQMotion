@@ -22,4 +22,4 @@ SEQMotion.SequenceExists( _seqmotion_sequence_id )
 if ( SEQMotion.SequenceExists( character ) ) SEQMotion.UpdateSequence( character, x, y, depth );
 ```
 
-Код выше проверит существование экземпляра управляемой последовательности character, и если он существует — обновит его позицию и глубину отрисовки
+Код выше проверит существование экземпляра управляемой последовательности `character`, и если он существует — обновит его позицию и глубину отрисовки
