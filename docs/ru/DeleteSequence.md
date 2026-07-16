@@ -10,11 +10,11 @@ SEQMotion.DeleteSequence( _seqmotion_sequence_id )
 
 ### Параметры метода
 
-![DeleteSequence_Parameters](images/DeleteSequence_Parameters.png)
+![DeleteSequence_Parameters](.images/DeleteSequence_Parameters.png)
 
 ### Возвращаемое значение
 
-![DeleteSequence_ReturnValue](images/DeleteSequence_ReturnValue.png)
+![DeleteSequence_ReturnValue](.images/DeleteSequence_ReturnValue.png)
 
 ### Пример
 
