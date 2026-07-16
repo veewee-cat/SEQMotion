@@ -62,6 +62,15 @@ function SEQMotion( ) constructor
 			{
 				return __GetSequence( _seqmotion_sequence_id ).__GetAnimationSpeed( );
 			};
+			
+			///	@method
+			///	@description Получение индекса текущего кадра анимации последовательности
+			///	@parameter {Id.SEQMotionSequence} _seqmotion_sequence_id Уникальный идентификатор управляемой последовательности
+			///	@return {Real}
+			static GetFrame = function( _seqmotion_sequence_id )
+			{
+				return __GetSequence( _seqmotion_sequence_id ).__GetFrame( );
+			};
 
 		#endregion
 		#region Set-методы

@@ -113,6 +113,15 @@ function SEQMotionSequence( _sequence_index ) constructor
 			{
 				return __animation_speed;
 			};
+			
+			///	@method
+			///	@description Получение индекса текущего кадра анимации последовательности
+			///	@return {Real} 
+			///	@ignore
+			static __GetFrame = function( )
+			{
+				return __frame;
+			};
 		
 		#endregion
 		#region Set-методы
@@ -159,7 +168,6 @@ function SEQMotionSequence( _sequence_index ) constructor
 				//	Отмена описания новой последовательности
 				if ( not sequence_exists( _sequence_index ) ) 
 				{
-					show_message( "test" );
 					__can_be_updated = false;
 					exit;
 				};
