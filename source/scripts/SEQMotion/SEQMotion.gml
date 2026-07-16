@@ -17,6 +17,16 @@ function SEQMotion( ) constructor
 		#region Get-методы
 		
 			///	@method
+			///	@description Получение данных локатора по его имени
+			///	@parameter {Id.SEQMotionSequence} _seqmotion_sequence_id Уникальный идентификатор управляемой последовательности
+			///	@parameter {String} _locator_name Имя локатора
+			///	@return {Struct OR Undefined}
+			static GetTrackLocatorData = function( _seqmotion_sequence_id, _locator_name )
+			{
+				return __GetSequence( _seqmotion_sequence_id ).__GetTrackLocatorData( _locator_name );
+			};
+		
+			///	@method
 			///	@description Получение индекса спрайта указанного канала последовательности
 			///	@parameter {Id.SEQMotionSequence} _seqmotion_sequence_id Уникальный идентификатор управляемой последовательности
 			///	@parameter {String} _track_name Имя канала
@@ -52,17 +62,7 @@ function SEQMotion( ) constructor
 			{
 				return __GetSequence( _seqmotion_sequence_id ).__GetAnimationSpeed( );
 			};
-			
-			///	@method
-			///	@description Получение данных локатора по его имени
-			///	@parameter {Id.SEQMotionSequence} _seqmotion_sequence_id Уникальный идентификатор управляемой последовательности
-			///	@parameter {String} _locator_name Имя локатора
-			///	@return {Struct OR Undefined}
-			static GetTrackLocatorData = function( _seqmotion_sequence_id, _locator_name )
-			{
-				return __GetSequence( _seqmotion_sequence_id ).__GetTrackLocatorData( _locator_name );
-			};
-		
+
 		#endregion
 		#region Set-методы
 		
