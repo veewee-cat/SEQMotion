@@ -17,7 +17,7 @@ function SEQMotion( ) constructor
 		#region Get-методы
 		
 			///	@method
-			///	@description
+			///	@description Метод возвращает длину анимации в количестве кадров, указанном в редакторе последовательностей. Возвращает -1, если экземпляр последовательности пуст ( не указан индекс текущей последовательности )
 			///	@parameter {Id.SEQMotionSequence} _seqmotion_sequence_id Уникальный идентификатор управляемой последовательности
 			///	@return {Real}
 			static GetAnimationLength = function( _seqmotion_sequence_id )
@@ -226,7 +226,7 @@ function SEQMotion( ) constructor
 		///	@ignore
 		static __GetSequence = function( _seqmotion_sequence_id )
 		{
-			return ds_map_find_value( __sequences_map, _seqmotion_sequence_id ) ?? __Error( $"Недействительный указатель на экземпляр управляемой последовательности: { _seqmotion_sequence_id }" );
+			return ds_map_find_value( __sequences_map, _seqmotion_sequence_id ) ?? __Error( $"Недействительный указатель на экземпляр управляемой последовательности: { _seqmotion_sequence_id}" );
 		};
 		
 		///	@method

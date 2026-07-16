@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"SEQMotionSequenceStructManager",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"SEQMotionSequenceStructManager",
+  "parent":{
+    "name":"Sequence",
+    "path":"folders/Extensions/SEQMotion/Sequence.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

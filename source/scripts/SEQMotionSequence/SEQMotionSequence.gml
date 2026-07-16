@@ -8,6 +8,9 @@ function SEQMotionSequence( _sequence_index ) constructor
 {
 	#region Переменные
 	
+		static __struct_manager = new SEQMotionSequenceStructManager( );	//	Менеджер структур последовательностей
+																			//	Используется для получения уникальных структурых данных ассетов последовательностей
+	
 		__layer = undefined;	//	Слой для управления последовательностью
 		
 		__sequence = { };	//	Структура последовательности
@@ -193,7 +196,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 				//
 				//	Расчет параметров последовательности
 				
-					__sequence = sequence_get( _sequence_index );
+					__sequence = __struct_manager.__GetStructByAsset( _sequence_index );
 					__can_be_updated = true;
 				
 					__animation_length = __sequence.length;
@@ -225,7 +228,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 				//	Ранний выход с выводом сообщения в отладке
 				if ( is_undefined( _sprite_index ) ) 
 				{
-					show_debug_message( $"SEQMotion.SetTrackSprite: Указан несуществующий спрайт '{ _sprite_index }'" );
+					show_debug_message( $"SEQMotion.SetTrackSprite: Указан несуществующий спрайт '{ _sprite_index}'" );
 					exit;
 				};
 					

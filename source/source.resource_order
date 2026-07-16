@@ -22,6 +22,7 @@
     {"name":"SEQMotion_Pointer_Locator","order":2,"path":"objects/SEQMotion_Pointer_Locator/SEQMotion_Pointer_Locator.yy",},
     {"name":"SEQMotionLoader","order":8,"path":"scripts/SEQMotionLoader/SEQMotionLoader.yy",},
     {"name":"SEQMotionSequence","order":2,"path":"scripts/SEQMotionSequence/SEQMotionSequence.yy",},
+    {"name":"SEQMotionSequenceStructManager","order":3,"path":"scripts/SEQMotionSequenceStructManager/SEQMotionSequenceStructManager.yy",},
     {"name":"Sequence_Character_Hands_Idle","order":1,"path":"sequences/Sequence_Character_Hands_Idle/Sequence_Character_Hands_Idle.yy",},
     {"name":"__SEQMotion_Icon_Locator","order":1,"path":"sprites/__SEQMotion_Icon_Locator/__SEQMotion_Icon_Locator.yy",},
     {"name":"Sprite_Character_Dog","order":1,"path":"sprites/Sprite_Character_Dog/Sprite_Character_Dog.yy",},

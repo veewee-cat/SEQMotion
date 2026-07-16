@@ -44,6 +44,7 @@
     {"id":{"name":"SEQMotion","path":"scripts/SEQMotion/SEQMotion.yy",},},
     {"id":{"name":"SEQMotionLoader","path":"scripts/SEQMotionLoader/SEQMotionLoader.yy",},},
     {"id":{"name":"SEQMotionSequence","path":"scripts/SEQMotionSequence/SEQMotionSequence.yy",},},
+    {"id":{"name":"SEQMotionSequenceStructManager","path":"scripts/SEQMotionSequenceStructManager/SEQMotionSequenceStructManager.yy",},},
     {"id":{"name":"Sequence_Character_Hands_Idle","path":"sequences/Sequence_Character_Hands_Idle/Sequence_Character_Hands_Idle.yy",},},
     {"id":{"name":"Sequence_Character_Hands_PlayWith","path":"sequences/Sequence_Character_Hands_PlayWith/Sequence_Character_Hands_PlayWith.yy",},},
     {"id":{"name":"Sequence_Character","path":"sequences/Sequence_Character/Sequence_Character.yy",},},
