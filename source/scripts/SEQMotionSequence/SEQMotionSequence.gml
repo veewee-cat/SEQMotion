@@ -2,8 +2,7 @@
 //	@veewee_cat
 
 ///	@class												
-///	@description Управляемая последовательность
-///	@parameter {Asset.GMSequence OR Undefined} _sequence_index Индекс последовательности
+///	@parameter {Asset.GMSequence OR Undefined} _sequence_index
 ///	@ignore
 function SEQMotionSequence( _sequence_index ) constructor
 {
@@ -36,7 +35,7 @@ function SEQMotionSequence( _sequence_index ) constructor
 
 		__frame = 0;	//	Кадр анимации текущего экземпляра последовательности
 		
-		__animation_length = 0;		//	Длина анимации текущей последовательности в количестве кадров
+		__animation_length = -1;	//	Длина анимации текущей последовательности в количестве кадров
 		
 		__animation_speed = 1;			//	Множитель скорости анимации
 		__should_be_paused = false;		//	Должна ли анимация остановиться 
@@ -50,18 +49,31 @@ function SEQMotionSequence( _sequence_index ) constructor
 		#region Get-методы
 		
 			///	@method
-			///	@description Получение индекса спрайта указанного канала последовательности
-			///	@parameter {String} _track_name Имя канала
-			///	@return {Asset.GMSprite OR Undefined}
+			///	@return {Real}
 			///	@ignore
-			static __GetTrackSprite = function( _track_name )
+			static __GetAnimationLength = function( )
 			{
-				return struct_get( __sprites, _track_name ).spriteIndex;
+				return __animation_length;
 			};
-				
+			
 			///	@method
-			///	@description Получение данных локатора по его имени
-			///	@parameter {String} _locator_name Имя локатора
+			///	@return {Real}
+			///	@ignore
+			static __GetAnimationSpeed = function( )
+			{
+				return __animation_speed;
+			};
+			
+			///	@method
+			///	@return {Real} 
+			///	@ignore
+			static __GetFrame = function( )
+			{
+				return __frame;
+			};
+			
+			///	@method
+			///	@parameter {String} _locator_name
 			///	@return {Struct OR Undefined}
 			///	@ignore
 			static __GetLocatorData = function( _locator_name )
@@ -77,18 +89,19 @@ function SEQMotionSequence( _sequence_index ) constructor
 				//	Возвращение неизвестного указателя
 				return undefined;
 			};
-		
+			
 			///	@method
-			///	@description Структура текущей последовательности
-			///	@return {Id.SequenceElment}
+			///	@parameter {String} _track_name
+			///	@return {Asset.GMSprite OR Undefined}
 			///	@ignore
-			static __GetSequenceInstanceId = function( )
+			static __GetTrackSprite = function( _track_name )
 			{
-				return __sequence_instance_id;
+				//	Попытка обращение к структуре спрайта
+				with ( struct_get( __sprites, _track_name ) ) return spriteIndex;
+															  return undefined;
 			};
-		
+			
 			///	@method
-			///	@description Фактор растяжения последовательности по x
 			///	@return {Real}
 			///	@ignore
 			static __GetXscale = function( )
@@ -97,7 +110,6 @@ function SEQMotionSequence( _sequence_index ) constructor
 			};
 			
 			///	@method
-			///	@description Фактор растяжения последовательности по y
 			///	@return {Real}
 			///	@ignore
 			static __GetYscale = function( )
@@ -105,135 +117,10 @@ function SEQMotionSequence( _sequence_index ) constructor
 				return __yscale;
 			};
 			
-			///	@method
-			///	@description Получение скорости проигрывания анимации экземпляра управляемой последовательности
-			///	@return {Real}
-			///	@ignore
-			static __GetAnimationSpeed = function( )
-			{
-				return __animation_speed;
-			};
-			
-			///	@method
-			///	@description Получение индекса текущего кадра анимации последовательности
-			///	@return {Real} 
-			///	@ignore
-			static __GetFrame = function( )
-			{
-				return __frame;
-			};
-		
 		#endregion
 		#region Set-методы
-
+		
 			///	@method
-			///	@description Изменение спрайта указанного канала последовательности
-			///	@parameter {String} _track_name
-			///	@parameter {Asset.GMSprite} _sprite_index
-			///	@ignore
-			static __SetTrackSprite = function( _track_name, _sprite_index )
-			{
-				//	В последовательности нет канала с указанным именем
-				//	Ранний выход
-				if ( not struct_exists( __sprites, _track_name ) ) exit;
-					
-				//
-				//	Изменение спрайта канала
-					
-					//	Сброс последовательности
-					__ResetSequence( );
-					
-					//	Изменение параметров ассета последовательности
-					struct_get( __sprites, _track_name ).spriteIndex = _sprite_index;
-					
-					//	Парсинг новых данных последовательности
-					__ParseSequenceData( );
-					
-					//	Предыдущий экземпляр последовательности был обновлен ранее
-					//	Обновление последовательности
-					if ( __has_been_ready ) __UpdateSequence( );
-			};
-
-			///	@method
-			///	@description Изменение индекса последовательности
-			///	@parameter {Asset.GMSequence} _sequence_index
-			///	@parameter {Bool} _reset
-			///	@ignore
-			static __SetSequence = function( _sequence_index, _reset )
-			{
-				//	Сброс последовательности
-				__ResetSequence( );
-				
-				//	Индекс на последовательность невалидный
-				//	Отмена описания новой последовательности
-				if ( not sequence_exists( _sequence_index ) ) 
-				{
-					__can_be_updated = false;
-					exit;
-				};
-				
-				//
-				//	Расчет параметров последовательности
-				
-					__sequence = sequence_get( _sequence_index );
-					__can_be_updated = true;
-				
-					__animation_length = __sequence.length;
-					__playback_speed = __sequence.playbackSpeed;
-					
-					//	Проверка того, что позицию текущего кадра нужно сбросить
-					//	Иначе она будет останется неизменной
-					__frame = ( __frame mod __animation_length ) * ( not _reset );
-					
-				//	Парсинг данных последовательности
-				__ParseSequenceData( );
-					
-				//	Предыдущий экземпляр последовательности был обновлен ранее
-				//	Обновление нового экземпляра последовательности
-				if ( __has_been_ready ) __UpdateSequence( );
-			};
-			
-			///	@method
-			///	@description Изменение фактора растяжения по x
-			///	@parameter {Real} _xscale
-			///	@ignore
-			static __SetXscale = function( _xscale )
-			{
-				__xscale = _xscale;
-				
-				//	Текущий экземпляр последовательности существует
-				//	Обновление его фактора растяжения по x
-				if ( __ready ) layer_sequence_xscale( __sequence_instance_id, _xscale );
-			};
-			
-			///	@method
-			///	@description Изменение фактора растяжения по y
-			///	@parameter {Real} _yscale
-			///	@ignore
-			static __SetYscale = function( _yscale )
-			{
-				__yscale = _yscale;
-				
-				//	Текущий экземпляр последовательности существует
-				//	Обновление его фактора растяжения по y
-				if ( __ready ) layer_sequence_yscale( __sequence_instance_id, _yscale );
-			};
-			
-			///	@method
-			///	@description Изменение угла наклона последовательности
-			///	@parameter {Real} _rotation
-			///	@ignore
-			static __SetRotation = function( _rotation )
-			{
-				__rotation = _rotation;
-				
-				//	Текущий экземпляр последовательности существует
-				//	Обновление его угла наклона
-				if ( __ready ) layer_sequence_angle( __sequence_instance_id, _rotation );
-			};
-			
-			///	@method
-			///	@description Изменение множителя скорости анимации
 			///	@parameter {Real} _animation_speed
 			///	@ignore
 			static __SetAnimationSpeed = function( _animation_speed )
@@ -261,7 +148,6 @@ function SEQMotionSequence( _sequence_index ) constructor
 			};
 			
 			///	@method
-			///	@description Изменение текущего кадра анимации
 			///	@parameter {Real} _frame
 			///	@ignore
 			static __SetFrame = function( _frame )
@@ -272,12 +158,122 @@ function SEQMotionSequence( _sequence_index ) constructor
 				//	Обновление его свойств
 				if ( __ready ) layer_sequence_headpos( __sequence_instance_id, __frame );
 			};
+			
+			///	@method
+			///	@parameter {Real} _rotation
+			///	@ignore
+			static __SetRotation = function( _rotation )
+			{
+				__rotation = _rotation;
+				
+				//	Текущий экземпляр последовательности существует
+				//	Обновление его угла наклона
+				if ( __ready ) layer_sequence_angle( __sequence_instance_id, _rotation );
+			};
+			
+			///	@method
+			///	@parameter {Asset.GMSequence} _sequence_index
+			///	@parameter {Bool} _reset
+			///	@ignore
+			static __SetSequence = function( _sequence_index, _reset )
+			{
+				//	Сброс последовательности
+				__ResetSequence( );
+				
+				//	Индекс на последовательность невалидный
+				//	Отмена описания новой последовательности
+				if ( not sequence_exists( _sequence_index ) ) 
+				{
+					__can_be_updated = false;
+					__animation_length = -1;
+					
+					exit;
+				};
 
+				//
+				//	Расчет параметров последовательности
+				
+					__sequence = sequence_get( _sequence_index );
+					__can_be_updated = true;
+				
+					__animation_length = __sequence.length;
+					__playback_speed = __sequence.playbackSpeed;
+					
+					//	Проверка того, что позицию текущего кадра нужно сбросить
+					//	Иначе она будет останется неизменной
+					__frame = ( __frame mod __animation_length ) * ( not _reset );
+					
+				//	Парсинг данных последовательности
+				__ParseSequenceData( );
+					
+				//	Предыдущий экземпляр последовательности был обновлен ранее
+				//	Обновление нового экземпляра последовательности
+				if ( __has_been_ready ) __UpdateSequence( );
+			};
+			
+			///	@method
+			///	@parameter {String} _track_name
+			///	@parameter {Asset.GMSprite} _sprite_index
+			///	@ignore
+			static __SetTrackSprite = function( _track_name, _sprite_index )
+			{
+				//	В последовательности нет канала с указанным именем
+				//	Ранний выход
+				if ( not struct_exists( __sprites, _track_name ) ) exit;
+				
+				//	Указанный индекс спрайта не валидный
+				//	Ранний выход с выводом сообщения в отладке
+				if ( is_undefined( _sprite_index ) ) 
+				{
+					show_debug_message( $"SEQMotion.SetTrackSprite: Указан несуществующий спрайт '{ _sprite_index }'" );
+					exit;
+				};
+					
+				//
+				//	Изменение спрайта канала
+					
+					//	Сброс последовательности
+					__ResetSequence( );
+
+					//	Изменение параметров ассета последовательности
+					struct_get( __sprites, _track_name ).spriteIndex = _sprite_index;
+					
+					//	Парсинг новых данных последовательности
+					__ParseSequenceData( );
+					
+					//	Предыдущий экземпляр последовательности был обновлен ранее
+					//	Обновление последовательности
+					if ( __has_been_ready ) __UpdateSequence( );
+			};
+
+			///	@method
+			///	@parameter {Real} _xscale
+			///	@ignore
+			static __SetXscale = function( _xscale )
+			{
+				__xscale = _xscale;
+				
+				//	Текущий экземпляр последовательности существует
+				//	Обновление его фактора растяжения по x
+				if ( __ready ) layer_sequence_xscale( __sequence_instance_id, _xscale );
+			};
+			
+			///	@method
+			///	@parameter {Real} _yscale
+			///	@ignore
+			static __SetYscale = function( _yscale )
+			{
+				__yscale = _yscale;
+				
+				//	Текущий экземпляр последовательности существует
+				//	Обновление его фактора растяжения по y
+				if ( __ready ) layer_sequence_yscale( __sequence_instance_id, _yscale );
+			};
+			
 		#endregion
 		#region Сброс данных текущего экземпляра последовательности
 		
 			///	@method
-			///	@description Сброс последовательности
 			///	@ignore
 			static __ResetSequence = function( )
 			{
@@ -303,7 +299,6 @@ function SEQMotionSequence( _sequence_index ) constructor
 			};
 		
 			///	@method
-			///	@description Удаление экземпляра локатора
 			///	@parameter {String} _
 			///	@parameter {Id.Instance} _instance
 			///	@ignore
@@ -316,7 +311,6 @@ function SEQMotionSequence( _sequence_index ) constructor
 		#region Парсинг данных последовательности
 		
 			///	@method
-			///	@description Парсинг данных последовательности
 			///	@ignore
 			static __ParseSequenceData = function( )
 			{
@@ -331,7 +325,6 @@ function SEQMotionSequence( _sequence_index ) constructor
 			};
 			
 			///	@method
-			///	@description Парсинг данных канала
 			///	@parameter {Struct.Track} _track
 			///	@ignore
 			static __ParseTrack = function( _track )
@@ -364,7 +357,6 @@ function SEQMotionSequence( _sequence_index ) constructor
 		#endregion
 		
 		///	@method
-		///	@description Обновление текущего экземпляра последовательности
 		///	@parameter {Real} _x
 		///	@parameter {Real} _y
 		///	@parameter {Real} _depth
@@ -445,7 +437,6 @@ function SEQMotionSequence( _sequence_index ) constructor
 		};
 		
 		///	@method
-		///	@description Очистка динамичных данных управляемой последовательности
 		///	@ignore
 		static __CleanUp = function( )
 		{
